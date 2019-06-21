@@ -6,7 +6,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { InvoiceProductTableComponent } from './invoice-maker/invoice-product-table/invoice-product-table.component';
-import { InvoiceProductTableItemComponent } from './invoice-maker/invoice-product-table/invoice-product-table-item/invoice-product-table-item.component';
 import { InvoiceProductTableAddComponent } from './invoice-maker/invoice-product-table/invoice-product-table-add/invoice-product-table-add.component';
 import { InvoiceMakerRoutingModule } from './invoice-maker-routing.module';
 import { UtilsService } from './invoice-maker/utils.service';
@@ -16,7 +15,6 @@ import { UtilsService } from './invoice-maker/utils.service';
     declarations: [
         InvoiceMakerComponent,
         InvoiceProductTableComponent,
-        InvoiceProductTableItemComponent,
         InvoiceProductTableAddComponent,
         InvoiceCostCalculatorComponent
     ],

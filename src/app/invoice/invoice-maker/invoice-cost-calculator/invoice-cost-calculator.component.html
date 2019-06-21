@@ -14,8 +14,9 @@
                 <div class="col-6">
                     <span>Net discount</span>
                 </div>                  
-                <div class="col-6">
+                <div class="col-6 discount-wrapper">
                     <input 
+                        [disabled]="disableNetDiscount"
                         type="text" 
                         id="discount"
                         class="form-control"
@@ -31,8 +32,11 @@
                 </div>
             </div>    
             <div class="row round-cents-row">
-                <button (click)="roundCents()" class="round-cents-wrapper">
+                <button (click)="applyDiscount()" class="round-cents-wrapper">
                     <strong>ROUND CENTS</strong>
+                </button>
+                <button (click)="removeDiscount()" class="round-cents-wrapper">
+                        <strong>REMOVE DISCOUNT</strong>
                 </button>
             </div>
         </div>

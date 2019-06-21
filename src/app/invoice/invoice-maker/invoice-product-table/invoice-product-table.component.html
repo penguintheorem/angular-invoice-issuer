@@ -1,7 +1,13 @@
 <div class="container invoice-maker-container">
     <div class="invoice-header">
         <div class="row invoice-header-title">
-            <h1>Invoice</h1>
+            <div>
+                <h1>Invoice</h1>
+                <div *ngIf="invoiceMade" class="invoice-header-issued">
+                    <p><strong>Invoice number:</strong> {{ invoiceNum }}</p>
+                    <p><strong>Issued date:</strong> {{ issuedDate | date:'dd/MM/yy' }}</p>
+                </div>
+            </div>
         </div>
         <div class="row invoice-header-text">
             <div class="invoice-user-section">
@@ -36,7 +42,7 @@
                     class="invoice-product-row"
                     *ngFor="let product of products;let i = index"> 
                     <td class="product-delete-button-wrapper" >
-                        <button (click)="onDeleteProduct(i)">
+                        <button [disabled]="invoiceMade" (click)="onDeleteProduct(i)">
                             <strong>-</strong>
                         </button>
                     </td>
@@ -48,9 +54,6 @@
                     </td>
                     <td>
                         <span>{{ product.quantity }}</span>
-                    </td>
-                    <td>
-                        <span>{{ product.price }}</span>
                     </td>
                     <td>
                         <span>{{ product.unitPriceWithVat }}</span>
@@ -72,8 +75,18 @@
         [products]="products"
         (discountApplied)="onDiscountApplied($event)">
     </invoice-cost-calculator>
+    <div 
+        class="alert alert-danger"
+        *ngIf="error">
+        <span> {{error}} </span>
+    </div> 
+    <div 
+        class="alert alert-success"
+        *ngIf="invoiceNum">
+        <span> Invoice created successfully! you can check your invoice number at the top of this page </span>
+    </div> 
     <div class="row products-submit-button-wrapper">
-        <button (click)="onProductsSubmit()">
+        <button [disabled]="invoiceMade" (click)="onProductsSubmit()">
             <strong>CREATE INVOICE</strong>
         </button>
     </div>

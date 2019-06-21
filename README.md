@@ -1,27 +1,35 @@
-# AngularInvoiceIssuer
+#######README
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
+#to run the app
 
-## Development server
+- run "npm install" from the command line.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- run "ng serve" to start the dev server on http://localhost:4200. 
 
-## Code scaffolding
+- run "ng test" to start unit testing.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#notes
 
-## Build
+- the main "invoice maker module" has been loaded lazily after 
+passing for the Home.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- for the "invoice cost calculator" i've choosen the "OnPush" detection changes
+strategy to get better performance, having some runtime calculation.
 
-## Running unit tests
+- i've preferred to separe the form and the products table.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- i've added some error messages, an additional button to remove the discount and inserting again. Hoping interpreted requirements correctly.
 
-## Running end-to-end tests
+- i've just added some example unit testing for some business logic calculations.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+#further developments
 
-## Further help
+- more unit testing.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- improve UI.
+
+- a custom (not boostrap) responsive design for the UI.
+
+- improve error management.
+
+- ...

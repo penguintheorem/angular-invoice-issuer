@@ -13,8 +13,9 @@ export class InvoiceCostCalculatorComponent implements OnInit {
   products: Product[] = [];
   @Output() 
   discountApplied: EventEmitter<number> = new EventEmitter<number>();
-  discount: number = 0.00;
+  discount: string = '€0.00';
   roundAndDiscount: boolean = false;
+  disableNetDiscount: boolean = false;
   
   
   constructor(private utilsService: UtilsService) { }
@@ -30,16 +31,22 @@ export class InvoiceCostCalculatorComponent implements OnInit {
   getTotal(): number {
     if(this.roundAndDiscount) {
       this.roundAndDiscount = false;
-      return this.utilsService.round(Math.max(0, this.utilsService.round(this.getSubtotal() - this.discount, 2)), 0);
+      return this.utilsService.round(Math.max(0, this.utilsService.round(this.getSubtotal() - this.utilsService.getPriceAsNumber(this.discount), 2)), 0);
     } else {
-      return Math.max(0, this.utilsService.round(this.getSubtotal() - this.discount, 2));
+      return Math.max(0, this.utilsService.round(this.getSubtotal(), 2));
     }
   }
 
   applyDiscount(): void {
     this.roundAndDiscount = true;
+    this.disableNetDiscount = true;
     // pass to the parent the discount value
-    this.discountApplied.emit( this.discount );
+    this.discountApplied.emit( this.utilsService.getPriceAsNumber(this.discount) );
+  }
+
+  removeDiscount(): void {
+    this.disableNetDiscount = false;
+    // the rest automatically re-calculate thanks to detection changes
   }
 
 }

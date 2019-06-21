@@ -5,6 +5,12 @@
         .invoice-header-title {
             justify-content: flex-end;
             color: #54A7FF;
+            .invoice-header-issued {
+                color: black;
+                p {
+                    margin-bottom: 0;
+                }
+            }
         }
         .invoice-header-text.row {
             padding-top: 5%;

@@ -1,3 +1,4 @@
+import { Observable, timer } from 'rxjs';
 import { Invoice } from './../../model/Invoice';
 import { InvoiceMakerService } from './../invoice-maker.service';
 import { Product } from './../../model/Product';
@@ -37,6 +38,8 @@ export class InvoiceProductTableComponent implements OnInit {
   public discount: number = 0.00;
   public invoiceNum: string = '';
   public issuedDate: string = '';
+  public invoiceMade = false;
+  public error = '';
   
 
   constructor(
@@ -71,14 +74,18 @@ export class InvoiceProductTableComponent implements OnInit {
            } 
         })
     }).subscribe( {
-                    next: (invoice: Invoice) => {
-                      this.invoiceNum = invoice.invoiceNumber,
-                      this.issuedDate = invoice.issuedOn
-                    },
-                    error: (err) => {
-                      
-                    }
-                  } );
+        next: (invoice: Invoice) => {
+          this.invoiceNum = invoice.invoiceNumber;
+          this.issuedDate = invoice.issuedOn;
+          this.invoiceMade = true;
+          this.invoiceMakerService.disableAddProductForm();
+        },
+        error: (err: Error) => {
+          this.error = `Error during Invoice Creation Request: ${err.message}`;
+          timer(5000)
+            .subscribe( () => { this.error = ''; } );
+        }
+      } );
   }
 
 }

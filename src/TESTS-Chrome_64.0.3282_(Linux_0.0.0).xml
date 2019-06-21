@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome 64.0.3282 (Linux 0.0.0)" package="" timestamp="2019-06-21T23:30:17" id="0" hostname="attylancer-HP-Notebook" tests="8" errors="0" failures="0" time="0.528">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36"/>
+  </properties>
+  <testcase name="InvoiceCostCalculatorComponent methods InvoiceCostCalculatorComponent - getSubtotal(): number" time="0.237" classname="Chrome_64_0_3282_(Linux_0_0_0).InvoiceCostCalculatorComponent methods"/>
+  <testcase name="InvoiceCostCalculatorComponent methods InvoiceCostCalculatorComponent - getTotal(): number - without DISCOUNT" time="0.147" classname="Chrome_64_0_3282_(Linux_0_0_0).InvoiceCostCalculatorComponent methods"/>
+  <testcase name="InvoiceCostCalculatorComponent methods InvoiceCostCalculatorComponent - getTotal(): number - with DISCOUNT" time="0.144" classname="Chrome_64_0_3282_(Linux_0_0_0).InvoiceCostCalculatorComponent methods"/>
+  <testcase name="AppComponent should create the app" time="0" classname="Chrome_64_0_3282_(Linux_0_0_0).AppComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="AppComponent should have as title 'app'" time="0" classname="Chrome_64_0_3282_(Linux_0_0_0).AppComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="AppComponent should render title in a h1 tag" time="0" classname="Chrome_64_0_3282_(Linux_0_0_0).AppComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ErrorComponent should create" time="0" classname="Chrome_64_0_3282_(Linux_0_0_0).ErrorComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="HomeComponent should create" time="0" classname="Chrome_64_0_3282_(Linux_0_0_0).HomeComponent">
+    <skipped/>
+  </testcase>
+  <system-out>
+    <![CDATA[Chrome 64.0.3282 (Linux 0.0.0) ERROR: 'DEPRECATION: fit and fdescribe will cause your suite to report an 'incomplete' status in Jasmine 3.0'
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>

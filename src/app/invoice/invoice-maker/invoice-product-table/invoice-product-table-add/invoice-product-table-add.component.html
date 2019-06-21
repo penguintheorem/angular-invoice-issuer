@@ -2,7 +2,7 @@
     <hr>
     <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
       <div class="row invoice-maker-add-product-row">
-          <div class="col-2">
+          <div class="col-2 code-wrapper">
               <div class="form-group">
                 <input 
                   type="text" 
@@ -21,18 +21,33 @@
                     placeholder="Description"
                     formControlName="description">
                 </div>
+                <div 
+                  class="alert alert-danger"
+                  *ngIf="!addProductForm.disabled && !addProductForm.get('description').valid && addProductForm.get('description').touched">
+                    <span *ngIf="addProductForm.get('description').errors && addProductForm.get('description').errors['required']">this field is mandatory</span>
+                    <br>
+                    <span *ngIf="addProductForm.get('description').errors && addProductForm.get('description').errors['minLengthWithoutDoubledSpaces']">this field needs at least 5 chars</span>
+                </div> 
           </div>
-          <div class="col-1">
+          <div class="col-1 quantity-wrapper">
                 <div class="form-group">
                   <input 
                     type="number" 
                     id="quantity"
+                    min="1"
                     class="form-control"
                     formControlName="quantity"
                     (change)="updateNetPrice(addProductForm.value)">
                 </div>
+                <div 
+                  class="alert alert-danger"
+                  *ngIf="!addProductForm.disabled && !addProductForm.get('quantity').valid && addProductForm.get('quantity').touched">
+                    <span *ngIf="addProductForm.get('quantity').errors && addProductForm.get('quantity').errors['required']">this field is mandatory</span>
+                    <br>
+                    <span *ngIf="addProductForm.get('quantity').errors && addProductForm.get('quantity').errors['min']">at least 1 product required</span>
+                </div> 
           </div>
-          <div class="col-2">
+          <div class="col-2 price-wrapper">
                 <div class="form-group">
                   <input 
                     type="text"
@@ -41,8 +56,13 @@
                     formControlName="unitPriceWithVat"
                     (change)="updateNetPrice(addProductForm.value)">
                 </div>
+                <div 
+                  class="alert alert-danger"
+                  *ngIf="!addProductForm.disabled && !addProductForm.get('unitPriceWithVat').valid && addProductForm.get('unitPriceWithVat').touched">
+                  <span *ngIf="addProductForm.get('unitPriceWithVat').errors && addProductForm.get('unitPriceWithVat').errors['required']">this field is mandatory</span>
+              </div> 
           </div>
-          <div class="col-2">
+          <div class="col-1 vat-wrapper">
                 <div class="form-group">
                     <select
                       id="vatRate"
@@ -57,9 +77,9 @@
                   </select>
                 </div>
           </div>
-          <div class="col-2">
+          <div class="col-1 netprice-wrapper">
                 <div class="form-group">
-                  <span>{{ netPrice | currency: 'EUR':true }}</span>
+                  <span>{{ netPrice.toFixed(2) | currency: 'EUR':true }}</span>
                 </div>
           </div>     
       </div>
