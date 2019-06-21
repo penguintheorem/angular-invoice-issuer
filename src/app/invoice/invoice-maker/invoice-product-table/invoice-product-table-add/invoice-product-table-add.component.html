@@ -1,0 +1,77 @@
+<div class="invoice-maker-add-product-wrapper">
+    <hr>
+    <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+      <div class="row invoice-maker-add-product-row">
+          <div class="col-2">
+              <div class="form-group">
+                <input 
+                  type="text" 
+                  id="code"
+                  class="form-control"
+                  placeholder="Code"
+                  formControlName="code">
+              </div>
+          </div>
+          <div class="col-3">
+                <div class="form-group">
+                  <input 
+                    type="text" 
+                    id="description"
+                    class="form-control"
+                    placeholder="Description"
+                    formControlName="description">
+                </div>
+          </div>
+          <div class="col-1">
+                <div class="form-group">
+                  <input 
+                    type="number" 
+                    id="quantity"
+                    class="form-control"
+                    formControlName="quantity"
+                    (change)="updateNetPrice(addProductForm.value)">
+                </div>
+          </div>
+          <div class="col-2">
+                <div class="form-group">
+                  <input 
+                    type="text"
+                    id="unitPriceWithVat"
+                    class="form-control"
+                    formControlName="unitPriceWithVat"
+                    (change)="updateNetPrice(addProductForm.value)">
+                </div>
+          </div>
+          <div class="col-2">
+                <div class="form-group">
+                    <select
+                      id="vatRate"
+                      class="form-control"
+                      formControlName="vatRate"
+                      (change)="updateNetPrice(addProductForm.value)">
+                      <option 
+                        *ngFor="let vat of vats" 
+                        [value]="vat">
+                        {{ vat }}%
+                      </option>
+                  </select>
+                </div>
+          </div>
+          <div class="col-2">
+                <div class="form-group">
+                  <span>{{ netPrice | currency: 'EUR':true }}</span>
+                </div>
+          </div>     
+      </div>
+      <hr>
+      <div class="submit-button-wrapper">
+          <button 
+          class="btn btn-primary"
+          id="submitButton" 
+          type="submit"
+          [disabled]="!addProductForm.valid">
+          <strong>+</strong>
+        </button>
+      </div>  
+    </form>
+</div>

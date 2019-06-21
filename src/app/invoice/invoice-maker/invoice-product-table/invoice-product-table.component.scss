@@ -1,0 +1,46 @@
+.invoice-maker-container {
+    font-family:  'Nunito', sans-serif;
+    .invoice-header {
+        padding-top: 5%;
+        .invoice-header-title {
+            justify-content: flex-end;
+            color: #54A7FF;
+        }
+        .invoice-header-text.row {
+            padding-top: 5%;
+            justify-content: space-between;
+            p { 
+                margin-bottom: 0;    
+            }
+            .invoice-address-section {
+                text-align: right;
+            }
+        }
+    }
+    .table-responsive {
+        padding-top: 8%;
+        .invoice-product-table {
+            .invoice-product-row {
+                .product-delete-button-wrapper {
+                    button {
+                        border-radius: 50%;
+                        min-width: 25px;
+                        background: red;
+                        border: 0;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    .products-submit-button-wrapper {
+        justify-content: center;
+        padding: 5%;
+        button {
+            background-color: #54A7FF;
+            color: white;
+            border-radius: 15px;
+            padding: 2px 15px;
+        }
+    }
+}

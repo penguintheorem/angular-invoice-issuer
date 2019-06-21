@@ -1,0 +1,25 @@
+.invoice-cost-calculator-container {
+    justify-content: flex-end;
+    padding-top: 5%;
+    .invoice-cost-calculator-wrapper {
+        width: 100%;
+        .row {
+            padding-bottom: 5%
+        }
+        .total-row-wrapper {
+            background-color: #9bff9d;
+        }
+        .subtotal-row, .total-row {
+            text-align: right;
+        }
+        .round-cents-row {
+            padding-top: 5%;
+            .round-cents-wrapper {
+                color: #54A7FF;
+                border: 2px solid #54A7FF;
+                background: white;
+                border-radius: 5%;
+            }
+        }
+    }
+}
